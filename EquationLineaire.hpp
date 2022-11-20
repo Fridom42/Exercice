@@ -27,7 +27,7 @@ class EquationLineaire
         vector <vector<int>> GetA();
         void SetA(int Rows, int Cols);
         vector<int> Get_b();
-        void Set_b();
+        void Set_b(int Rows);
     
         bool IsSquared(vector<vector<int>> Matrice);
         bool IsUpperTriangular(vector<vector<int>> Matrice);

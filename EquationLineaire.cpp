@@ -29,11 +29,13 @@ vector <vector<int>> EquationLineaire::GetA()
 void EquationLineaire::SetA(int Rows, int Cols)
 {
     cout << "Saisisser les valeurs de votre matrice:" << endl;
-    for (int col = 0; col < nCols; col++)
+    for (int row = 0; row < nRows; row++)
     {
-        for (int row = 0; row < nRows; row++)
+        MatriceA.push_back(vector<int>());
+        for (int col = 0; col < nCols; col++)
         {
-            cout << "A" << row << '.' << col << "= ";
+            MatriceA[row].push_back(0);
+            cout << "A" << row+1 << '.' << col+1 << "= ";
             cin >> MatriceA[row][col];
         }
         
@@ -43,12 +45,13 @@ vector<int> EquationLineaire::Get_b()
 {
     return Vecteur_b;
 }
-void EquationLineaire::Set_b()
+void EquationLineaire::Set_b(int Rows)
 {
     cout << "Saisisser les valeurs de votre vecteur:" << endl;
     for (int row = 0; row < nRows; row++)
     {
-        cout << "b" << row << "= ";
+        Vecteur_b.push_back(0);
+        cout << "b" << row+1 << "= ";
         cin >> Vecteur_b[row];
     }
 }
@@ -85,7 +88,7 @@ bool EquationLineaire::IsLowerTriangular(vector<vector<int>> Matrice)
     return true;
 }
 
-int EquationLineaire::determinant(vector <vector <int>> Matrice)
+/*int EquationLineaire::determinant(vector <vector <int>> Matrice)
 {
 
 }
@@ -98,6 +101,6 @@ vector<vector<int>> EquationLineaire::Triangularise(vector<vector<int>> Matrice)
 vector <int> EquationLineaire::solver(vector<vector <int>> Matrice, vector <int> Vecteur)
 {
 
-}
+}*/
 
 
