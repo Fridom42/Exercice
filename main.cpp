@@ -4,12 +4,13 @@ int main()
 {
     EquationLineaire Equation;
 
-    int x;
-    if(Equation.IsSquared(Equation.GetA())){
-      x = Equation.determinant(Equation.GetA(),Equation.GetA().size());
-    }
+    Equation.solver(Equation.GetA());
 
-    cout << x << endl;
+    for (int i = 0; i < Equation.GetA().size(); i++)
+    {
+        Equation.Vecteur_x[i];
+    }
+    
 
     return 0;
 }

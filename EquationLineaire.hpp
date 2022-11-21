@@ -9,30 +9,30 @@ using namespace std;
 class EquationLineaire
 {
     private:
-        int nRows;
-        int nCols;
-        vector <vector <int>> MatriceA;
-        vector <int> Vecteur_b;
-        vector <int> Vecteur_x;
+        int SizeMatrice;
+        vector <vector <double>> MatriceA;
+        vector <double> Vecteur_b;
         
     public:
+        vector <double> Vecteur_x;
+
         EquationLineaire();
-        EquationLineaire(int Rows, int Cols);
+        EquationLineaire(int TailleMatrice);
         ~EquationLineaire();
 
-        vector <int> solver(vector<vector <int>> Matrice, vector <int> Vecteur);
+        void solver(vector<vector <double>> Matrice);
     
-        int determinant(vector <vector <int>> Matrice, int TailleMatrice);
+        double determinant(vector <vector <double>> Matrice, int TailleMatrice);
         
-        vector <vector<int>> GetA();
-        void SetA(int Rows, int Cols);
-        vector<int> Get_b();
-        void Set_b(int Rows);
+        vector <vector<double>> GetA();
+        void SetA(int TailleMatrice);
+        vector<double> Get_b();
+        void Set_b(int TailleVecteur);
     
-        bool IsSquared(vector<vector<int>> Matrice);
-        bool IsUpperTriangular(vector<vector<int>> Matrice);
-        bool IsLowerTriangular(vector<vector<int>> Matrice);
+        bool IsSquared(vector<vector<double>> Matrice);
+        bool IsUpperTriangular(vector<vector<double>> Matrice);
+        bool IsLowerTriangular(vector<vector<double>> Matrice);
 
-        vector<vector<int>> Triangularise(vector<vector<int>> Matrice);
+        vector<vector<double>> Inverse(vector<vector<double>> Matrice);
 };
 #endif
