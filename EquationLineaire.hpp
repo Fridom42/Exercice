@@ -22,7 +22,7 @@ class EquationLineaire
 
         vector <int> solver(vector<vector <int>> Matrice, vector <int> Vecteur);
     
-        int determinant(vector <vector <int>> Matrice);
+        int determinant(vector <vector <int>> Matrice, int TailleMatrice);
         
         vector <vector<int>> GetA();
         void SetA(int Rows, int Cols);

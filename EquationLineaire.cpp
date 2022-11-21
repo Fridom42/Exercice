@@ -1,4 +1,5 @@
 #include "EquationLineaire.hpp"
+#include<math.h>
 
 
 EquationLineaire::EquationLineaire()
@@ -6,8 +7,12 @@ EquationLineaire::EquationLineaire()
     nRows = 4;
     nCols = 4;
 
-    SetA(nRows,nCols);
-    Set_b(nRows);
+    MatriceA = {{3,4,2,6},
+                {7,8,9,5},
+                {9,2,3,4},
+                {5,6,7,8}};
+
+    Vecteur_b = {4,6,1,9};
 }
 EquationLineaire::EquationLineaire(int Rows, int Cols)
 {
@@ -88,12 +93,32 @@ bool EquationLineaire::IsLowerTriangular(vector<vector<int>> Matrice)
     return true;
 }
 
-/*int EquationLineaire::determinant(vector <vector <int>> Matrice)
+int EquationLineaire::determinant(vector <vector <int>> Matrice, int TailleMatrice)
 {
-
+   int det = 0;
+   vector <vector<int>> SousMatrice = Matrice;
+   if (TailleMatrice == 2)
+   return ((Matrice[0][0] * Matrice[1][1]) - (Matrice[1][0] * Matrice[0][1]));
+   else {
+      for (int x = 0; x < TailleMatrice; x++) {
+         int subi = 0;
+         for (int i = 1; i < TailleMatrice; i++) {
+            int subj = 0;
+            for (int j = 0; j < TailleMatrice; j++) {
+               if (j == x)
+               continue;
+               SousMatrice[subi][subj] = Matrice[i][j];
+               subj++;
+            }
+            subi++;
+         }
+         det = det + (pow(-1, x) * Matrice[0][x] * determinant( SousMatrice, TailleMatrice - 1 ));
+      }
+   }
+   return det;
 }
 
-vector<vector<int>> EquationLineaire::Triangularise(vector<vector<int>> Matrice)
+/*vector<vector<int>> EquationLineaire::Triangularise(vector<vector<int>> Matrice)
 {
 
 }
