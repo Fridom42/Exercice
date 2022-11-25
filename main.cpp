@@ -1,16 +1,21 @@
-#include "EquationLineaire.cpp"
+#include "EquationLineaire.hpp"
 
 int main()
 {
-    EquationLineaire Equation;
+    int taille;
 
-    Equation.solver(Equation.GetA());
+    cout << endl << "Saississer la taille de votre matrice CARRE: ";
+    cin >> taille;
 
-    for (int i = 0; i < Equation.GetA().size(); i++)
+    EquationLineaire Equation(taille);
+
+    Equation.solver(Equation.Triangulise(Equation.GetA()));
+
+    cout << endl << "Les solutions sont:" << endl;
+    for (int i = 0; i < taille; i++)
     {
-        Equation.Vecteur_x[i];
+        cout << "x" << i << "= " << Equation.Vecteur_x[i] << endl;
     }
-    
 
     return 0;
 }
